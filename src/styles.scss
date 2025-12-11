@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/colors';
+
+/* Almarena Neue Font Face Declarations */
+@font-face {
+    font-family: 'Almarena Neue';
+    src: url('./assets/Fonts/almarena-neue/almarenaneue-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarena Neue';
+    src: url('./assets/Fonts/almarena-neue/almarenaneue-ds-regular-it.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Almarena Neue', sans-serif;
+}
