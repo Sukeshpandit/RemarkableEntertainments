@@ -1,16 +1,16 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SHOWCASE_CARDS, ShowcaseCard } from './showcase-card.data';
+import { SHOWCASE_CARDS, ShowcaseCard } from './experiences-card.data';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
-  selector: 'app-showcase-card',
-  templateUrl: './showcase-card.component.html',
-  styleUrls: ['./showcase-card.component.scss']
+  selector: 'app-experiences',
+  templateUrl: './experiences.component.html',
+  styleUrls: ['./experiences.component.scss']
 })
-export class ShowcaseCardComponent implements AfterViewInit, OnDestroy {
+export class ExperiencesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('title') title!: ElementRef<HTMLElement>;
   @ViewChild('subtitle') subtitle!: ElementRef<HTMLElement>;
   @ViewChild('primaryBtn') primaryBtn!: ElementRef<HTMLButtonElement>;

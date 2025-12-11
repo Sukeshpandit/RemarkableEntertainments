@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeroComponent } from './shared/components/hero/hero.component';
-import { ShowcaseCardComponent } from './shared/components/showcase-card/showcase-card.component';
+import { ExperiencesComponent } from './shared/components/experiences-cards/experiences.component';
+import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
-    ShowcaseCardComponent
+    ExperiencesComponent,
+    ShowcaseGridComponent
   ],
   imports: [
     BrowserModule,
