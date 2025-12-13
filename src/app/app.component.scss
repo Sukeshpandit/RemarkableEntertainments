@@ -1,1 +1,52 @@
 @use '../styles/colors' as *;
+
+.app-logo {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 9999;
+  cursor: pointer;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &__image {
+    width: 120px;
+    height: auto;
+    display: block;
+    pointer-events: none;
+    
+    @media (max-width: 768px) {
+      width: 48px;
+    }
+  }
+}
+
+.app-hamburger {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    top: 1rem;
+    right: 1rem;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
