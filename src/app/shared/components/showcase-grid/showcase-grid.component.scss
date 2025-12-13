@@ -1,35 +1,61 @@
 @use '../../../../styles/colors' as *;
 
-.showcase-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin: 0 auto;
+.showcase-grid-wrapper {
+  position: relative;
   width: 100%;
-  z-index: 1;
+}
 
-  @media (max-width: 768px) {
-    gap: 2rem;
-  }
-
-  &__item {
-    width: 100%;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease forwards;
-
-    @for $i from 1 through 6 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
+.showcase-grid__scroll-container {
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  
+  // Hide scrollbar but keep scrolling functionality
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
   }
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.showcase-grid__scroll-content {
+  position: relative;
+  width: 100%;
+}
+
+.showcase-grid {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 569px; // Fallback height until JS sets it
+  max-height: 569px; // Fallback max-height until JS sets it
+  margin: 0 auto;
+  z-index: 1;
+  perspective: 1200px;
+  overflow: hidden;
+
+  // Reduced motion fallback
+  @media (prefers-reduced-motion: reduce) {
+    perspective: none;
+  }
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+
+    // Reduced motion fallback
+    @media (prefers-reduced-motion: reduce) {
+      will-change: auto;
+    }
   }
 }
 
@@ -271,5 +297,20 @@
         height: 24px;
       }
     }
+  }
+
+}
+
+.pin-spacer {
+  padding: 0px !important;
+}
+.showcase-card__video-element,
+.showcase-card__video img {
+  transform-origin: center;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    will-change: auto;
+    transition: none;
   }
 }
