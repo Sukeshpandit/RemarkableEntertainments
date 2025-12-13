@@ -1,3 +1,36 @@
-<div class="client-logos">
-</div>
+<section class="client-logos">
+  <div class="client-logos__header">
+    <h1 class="client-logos__title">
+      Our Clients
+    </h1>
+    <p class="client-logos__subtitle">
+      We are proud to work with some of the best brands in the world.
+    </p>
+  </div>
+  <div class="client-logos__blobs">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="blob blob--3"></div>
+  </div>
+  <div class="logos-row row-top">
+    <div class="logos-track" #rowTop>
+      <div class="logo" *ngFor="let logo of logos">
+        <img [src]="logo" alt="Client logo" />
+      </div>
+      <div class="logo" *ngFor="let logo of logos">
+        <img [src]="logo" alt="Client logo" />
+      </div>
+    </div>
+  </div>
 
+  <div class="logos-row row-bottom">
+    <div class="logos-track" #rowBottom>
+      <div class="logo" *ngFor="let logo of logos">
+        <img [src]="logo" alt="Client logo" />
+      </div>
+      <div class="logo" *ngFor="let logo of logos">
+        <img [src]="logo" alt="Client logo" />
+      </div>
+    </div>
+  </div>
+</section>
