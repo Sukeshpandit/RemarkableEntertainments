@@ -9,13 +9,15 @@ import { HeroComponent } from './shared/components/hero/hero.component';
 import { ExperiencesComponent } from './shared/components/experiences-cards/experiences.component';
 import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
+import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
     ExperiencesComponent,
     ShowcaseGridComponent,
-    ClientLogosComponent
+    ClientLogosComponent,
+    EntertainmentsComponent
   ],
   imports: [
     BrowserModule,
