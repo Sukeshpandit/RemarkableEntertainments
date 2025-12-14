@@ -1,11 +1,11 @@
 <section class="hero" #heroSection>
-  <video class="hero-video" #heroVideo muted loop preload="auto" playsinline>
+  <video class="hero-video" #heroVideo muted loop preload="auto" playsinline autoplay>
     <source src="assets/Landing_page/Landing_page_video.mp4" type="video/mp4">
     Your browser does not support the video 
   </video>
   <div class="hero-overlay"></div>
   
-  <!-- SVG mask container with reversed video -->
+  <!-- SVG  mask container with reversed video -->
   <div class="hero-mask-container">
     <svg class="hero-mask-svg" viewBox="0 0 448 549" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <defs>
@@ -29,8 +29,8 @@
       </defs>
     </svg>
     
-    <video class="hero-video-reversed" #reversedVideo muted loop playsinline preload="auto">
-      <source src="assets/Landing_page/Landing_page_video_reverse.mp4" type="video/mp4">
+    <video class="hero-video-reversed" #reversedVideo muted loop playsinline preload="auto" autoplay>
+      <source src="assets/Landing_page/Landing_page_video.mp4" type="video/mp4">
     </video>
   </div>
    
