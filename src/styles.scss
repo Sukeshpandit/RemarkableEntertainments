@@ -27,3 +27,28 @@
 body, html {
     font-family: 'Almarena Neue', sans-serif;
 }
+
+/* Hide scrollbar for all browsers while keeping scroll functionality */
+* {
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
