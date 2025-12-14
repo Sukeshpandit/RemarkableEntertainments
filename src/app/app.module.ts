@@ -10,6 +10,7 @@ import { ExperiencesComponent } from './shared/components/experiences-cards/expe
 import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
 import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
+import { AboutComponent } from './shared/components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { EntertainmentsComponent } from './shared/components/entertainments/ente
     ExperiencesComponent,
     ShowcaseGridComponent,
     ClientLogosComponent,
-    EntertainmentsComponent
+    EntertainmentsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

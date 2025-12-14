@@ -1,0 +1,126 @@
+@use 'colors' as *;
+
+.about {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background: #1A1A22;
+  padding: 8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
+
+  .about-container {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .about-eyebrow {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    margin-bottom: 1rem;
+  }
+
+  .about-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 2rem 0;
+    color: $color-text-light;
+    letter-spacing: -0.02em;
+  }
+
+  .about-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    color: $color-text-muted;
+    margin: 0 0 1.5rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__blobs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.3;
+    will-change: transform;
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      mix-blend-mode: screen;
+
+      &--1 {
+        width: 400px;
+        height: 400px;
+        background: $brand-purple;
+        top: 100px;
+        left: 10%;
+        animation: float 20s ease-in-out infinite;
+      }
+
+      &--2 {
+        width: 300px;
+        height: 300px;
+        background: $brand-indigo;
+        bottom: -50px;
+        right: 15%;
+        animation: float 25s ease-in-out infinite reverse;
+      }
+
+      &--3 {
+        width: 250px;
+        height: 250px;
+        background: $brand-lilac;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 18s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about {
+    * {
+      will-change: auto !important;
+    }
+  }
+}
