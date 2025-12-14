@@ -313,45 +313,4 @@ export class ShowcaseGridComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  // Video handlers (unchanged)
-  toggleVideo(video: HTMLVideoElement, overlay: HTMLElement): void {
-    if (video.paused) {
-      video.play().then(() => {
-        overlay.classList.add('hidden');
-      }).catch(() => {
-        overlay.classList.remove('hidden');
-      });
-    } else {
-      video.pause();
-      overlay.classList.remove('hidden');
-    }
-  }
-
-  onVideoLoaded(video: HTMLVideoElement, overlay: HTMLElement): void {
-    video.play().then(() => {
-      overlay.classList.add('hidden');
-    }).catch(() => {
-      overlay.classList.remove('hidden');
-    });
-
-    if (!video.paused) {
-      overlay.classList.add('hidden');
-    }
-  }
-
-  onVideoPlay(event: Event): void {
-    const video = event.target as HTMLVideoElement;
-    const overlay = video.parentElement?.querySelector('.showcase-card__play-overlay') as HTMLElement;
-    if (overlay) {
-      overlay.classList.add('hidden');
-    }
-  }
-
-  onVideoPause(event: Event): void {
-    const video = event.target as HTMLVideoElement;
-    const overlay = video.parentElement?.querySelector('.showcase-card__play-overlay') as HTMLElement;
-    if (overlay) {
-      overlay.classList.remove('hidden');
-    }
-  }
 }

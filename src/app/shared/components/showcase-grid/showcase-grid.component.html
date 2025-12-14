@@ -30,26 +30,13 @@
         </div>
         <div class="showcase-card__video">
           <video 
-            #videoElement
             class="showcase-card__video-element"
             muted
             loop
             autoplay
-            playsinline
-            (play)="onVideoPlay($event)"
-            (pause)="onVideoPause($event)"
-            (loadedmetadata)="onVideoLoaded(videoElement, playOverlay)">
+            playsinline>
             <source [src]="card.videoUrl" type="video/mp4">
           </video>
-          <div class="showcase-card__play-overlay hidden" 
-               #playOverlay
-               (click)="toggleVideo(videoElement, playOverlay)">
-            <div class="showcase-card__play-button">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M8 5v14l11-7z" fill="currentColor"/>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
     </div>
