@@ -213,9 +213,7 @@
     z-index: 2;
 
     @media (max-width: 768px) {
-      flex: 0 0 auto;
-      padding: 1.5rem;
-      min-height: 400px;
+      display: none;
     }
   }
 
