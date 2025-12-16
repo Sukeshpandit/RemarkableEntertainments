@@ -37,17 +37,13 @@
   <div class="hero-content">
     <h1 class="hero-headline">
       <span class="hero-line">
-        <span class="hero-word">Together</span>
-        <span class="hero-word">we</span>
-        <span class="hero-word">Shape</span>
+        <span class="hero-word" *ngFor="let word of headlineLine1">{{ word }}</span>
       </span>
       <span class="hero-line">
-        <span class="hero-word">Success</span>
-        <span class="hero-word">of your</span>
-        <span class="hero-word">Season</span>
+        <span class="hero-word" *ngFor="let word of headlineLine2">{{ word }}</span>
       </span>
     </h1>
-    <p class="hero-subtitle">Remarkable Entertainments</p>
+    <p class="hero-subtitle">{{ subtitle }}</p>
   </div>
 </section>
 

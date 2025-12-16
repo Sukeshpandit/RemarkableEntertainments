@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -6,6 +6,9 @@ import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@ang
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements AfterViewInit, OnDestroy {
+  @Input() headlineLine1: string[] = ['Together', 'we', 'Shape'];
+  @Input() headlineLine2: string[] = ['Success', 'of your', 'Season'];
+  @Input() subtitle: string = 'Remarkable Entertainments';
   @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
   @ViewChild('reversedVideo') reversedVideo!: ElementRef<HTMLVideoElement>;
   

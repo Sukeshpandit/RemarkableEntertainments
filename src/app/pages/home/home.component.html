@@ -1,39 +1,6 @@
 <a class="app-logo" (click)="scrollToHero()">
   <img src="assets/images/RemarkableLogoComplete.svg" alt="Remarkable Logo" class="app-logo__image">
 </a>
-<div class="app-hamburger" *ngIf="!isPanelOpen" (click)="togglePanel()">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 10H18" stroke="white" stroke-width="2" stroke-linecap="square"/>
-    <path d="M6 14H18" stroke="white" stroke-width="2" stroke-linecap="square"/>
-  </svg>
-</div>
-
-<!-- Side Panel -->
-<div class="side-panel-overlay" [class.active]="isPanelOpen" (click)="closePanel()"></div>
-<div class="side-panel" [class.active]="isPanelOpen">
-  <div class="side-panel__header">
-    <h2 class="side-panel__title">Navigation</h2>
-    <button class="side-panel__close" (click)="closePanel()" aria-label="Close menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-  <nav class="side-panel__nav">
-    <a class="side-panel__link" (click)="navigateTo('home')" [routerLink]="['/home']" routerLinkActive="active">
-      <span>Home</span>
-    </a>
-    <a class="side-panel__link" (click)="navigateTo('celebrations')" [routerLink]="['/celebrations']" routerLinkActive="active">
-      <span>Celebrations</span>
-    </a>
-    <a class="side-panel__link" (click)="navigateTo('entertainments')" [routerLink]="['/entertainments']" routerLinkActive="active">
-      <span>Entertainments</span>
-    </a>
-    <a class="side-panel__link" (click)="navigateTo('experiences')" [routerLink]="['/experiences']" routerLinkActive="active">
-      <span>Experiences</span>
-    </a>
-  </nav>
-</div>
 <app-hero></app-hero>
 <!-- <app-experiences></app-experiences> -->
 <app-client-logos></app-client-logos>

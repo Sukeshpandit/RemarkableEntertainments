@@ -11,6 +11,7 @@ import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcas
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
 // import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
 import { AboutComponent } from './shared/components/about/about.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
 
 //pages
 import { HomeComponent } from './pages/home/home.component';
@@ -26,6 +27,7 @@ import { ExperiencesComponent as ExperiencesPageComponent } from './pages/experi
     ClientLogosComponent,
     // EntertainmentsComponent,
     AboutComponent,
+    NavigationComponent,
     HomeComponent,
     CelebrationsComponent,
     EntertainmentsPageComponent,
