@@ -1,0 +1,100 @@
+<section class="experience-measures">
+ <h2 class="experience-measures__heading">Proven. Scalable. Trusted.</h2>
+  <div class="experience-measures__grid">
+    <div 
+      class="experience-measures__card" 
+      *ngFor="let measure of measures; let i = index"
+      [attr.data-graphic-type]="measure.graphicType">
+      
+      <!-- Card Background Gradient Layer -->
+      <div class="experience-measures__gradient"></div>
+      
+      <!-- Background Graphics -->
+      <div class="experience-measures__graphic" [ngSwitch]="measure.graphicType">
+      
+        
+        <!-- Circular Progress Bar -->
+        <div *ngSwitchCase="'progress'" class="graphic-progress">
+          <svg class="graphic-progress__svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient [attr.id]="'progressGradient' + i" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#E2C7E5;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#D4B5E8;stop-opacity:0.9" />
+                <stop offset="100%" style="stop-color:#C9A8E0;stop-opacity:0.8" />
+              </linearGradient>
+            </defs>
+            <!-- Background circle -->
+            <circle 
+              cx="100" 
+              cy="100" 
+              r="80" 
+              fill="none" 
+              stroke="rgba(255, 255, 255, 0.08)" 
+              stroke-width="4.5"/>
+            <!-- Progress arc with glow -->
+            <circle 
+              cx="100" 
+              cy="100" 
+              r="80" 
+              fill="none" 
+              [attr.stroke]="'url(#progressGradient' + i + ')'"
+              stroke-width="4.5"
+              stroke-linecap="round"
+              [attr.stroke-dasharray]="getProgressDashArray(measure.graphicValue || 0)"
+              [attr.stroke-dashoffset]="getProgressDashOffset(measure.graphicValue || 0)"
+              transform="rotate(-90 100 100)"
+              [attr.filter]="'url(#progressGlow' + i + ')'"
+              opacity="1"/>
+          </svg>
+        </div>
+        
+        <!-- Concentric Circles for "+350" -->
+        <div *ngSwitchCase="'overlapping-circles'" class="graphic-circles">
+          <svg class="graphic-circles__svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Concentric circles -->
+            <g stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none">
+              <circle cx="300" cy="300" r="50"/>
+              <circle cx="300" cy="300" r="100"/>
+              <circle cx="300" cy="300" r="150"/>
+              <circle cx="300" cy="300" r="200"/>
+              <circle cx="300" cy="300" r="250"/>
+              <circle cx="300" cy="300" r="300"/>
+            </g>
+            <!-- Center dot -->
+            <circle cx="300" cy="300" r="5" fill="#E2C7E5" opacity="0.6"/>
+          </svg>
+        </div>
+        
+        <!-- Number Outline -->
+        <div *ngSwitchCase="'number-outline'" class="graphic-number">
+          <!-- Bubble background pattern -->
+          <svg class="graphic-number__bubbles" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Bubble outlines -->
+            <g fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2">
+              <!-- Large bubbles -->
+              <circle cx="260" cy="160" r="120"/>
+              <circle cx="90" cy="80" r="70"/>
+              <!-- Medium bubbles -->
+              <circle cx="420" cy="210" r="55"/>
+              <circle cx="470" cy="170" r="35"/>
+              <circle cx="520" cy="225" r="30"/>
+              <!-- Small bubbles -->
+              <circle cx="160" cy="160" r="22"/>
+              <circle cx="200" cy="200" r="18"/>
+              <circle cx="350" cy="240" r="20"/>
+              <circle cx="390" cy="260" r="14"/>
+              <circle cx="445" cy="250" r="12"/>
+            </g>
+          </svg>
+          <span class="graphic-number__text">{{ measure.graphicValue }}</span>
+        </div>
+      </div>
+      
+      <!-- Content -->
+      <div class="experience-measures__content">
+        <div class="experience-measures__value">{{ measure.value }}</div>
+        <div class="experience-measures__label">{{ measure.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
