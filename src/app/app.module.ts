@@ -6,20 +6,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeroComponent } from './shared/components/hero/hero.component';
-import { ExperiencesComponent } from './shared/components/experiences-cards/experiences.component';
+// import { ExperiencesComponent } from './shared/components/experiences-cards/experiences.component';
 import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
-import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
+// import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
 import { AboutComponent } from './shared/components/about/about.component';
+
+//pages
+import { HomeComponent } from './pages/home/home.component';
+import { CelebrationsComponent } from './pages/celebrations/celebrations.component';
+import { EntertainmentsComponent as EntertainmentsPageComponent } from './pages/entertainments/entertainments.component';
+import { ExperiencesComponent as ExperiencesPageComponent } from './pages/experiences/experiences.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
-    ExperiencesComponent,
+    // ExperiencesComponent,
     ShowcaseGridComponent,
     ClientLogosComponent,
-    EntertainmentsComponent,
+    // EntertainmentsComponent,
     AboutComponent,
+    HomeComponent,
+    CelebrationsComponent,
+    EntertainmentsPageComponent,
+    ExperiencesPageComponent,
   ],
   imports: [
     BrowserModule,
