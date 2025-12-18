@@ -19,6 +19,7 @@ import { CelebrationsComponent } from './pages/celebrations/celebrations.compone
 import { EntertainmentsComponent as EntertainmentsPageComponent } from './pages/entertainments/entertainments.component';
 import { ExperiencesComponent as ExperiencesPageComponent } from './pages/experiences/experiences.component';
 import { ExperienceMeasuresComponent } from './shared/components/experiences-components/experience-measures/experience-measures.component';
+import { ExperienceWordsComponent } from './shared/components/experiences-components/experience-words/experience-words.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { ExperienceMeasuresComponent } from './shared/components/experiences-com
     EntertainmentsPageComponent,
     ExperiencesPageComponent,
     ExperienceMeasuresComponent,
+    ExperienceWordsComponent,
   ],
   imports: [
     BrowserModule,
