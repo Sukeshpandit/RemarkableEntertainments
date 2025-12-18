@@ -6,11 +6,11 @@ import { SHOWCASE_CARDS, ShowcaseCard } from './experiences-card.data';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
-  selector: 'app-experiences',
+  selector: 'app-experiences-cards',
   templateUrl: './experiences.component.html',
   styleUrls: ['./experiences.component.scss']
 })
-export class ExperiencesComponent implements AfterViewInit, OnDestroy {
+export class ExperiencesCardsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('title') title!: ElementRef<HTMLElement>;
   @ViewChild('subtitle') subtitle!: ElementRef<HTMLElement>;
   @ViewChild('primaryBtn') primaryBtn!: ElementRef<HTMLButtonElement>;

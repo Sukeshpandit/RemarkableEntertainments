@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeroComponent } from './shared/components/hero/hero.component';
-// import { ExperiencesComponent } from './shared/components/experiences-cards/experiences.component';
+import { ExperiencesCardsComponent } from './shared/components/experiences-cards/experiences.component';
 import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
 // import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
@@ -24,7 +24,7 @@ import { ExperienceWordsComponent } from './shared/components/experiences-compon
   declarations: [
     AppComponent,
     HeroComponent,
-    // ExperiencesComponent,
+    ExperiencesCardsComponent,
     ShowcaseGridComponent,
     ClientLogosComponent,
     // EntertainmentsComponent,

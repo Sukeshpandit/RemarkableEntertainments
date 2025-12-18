@@ -23,9 +23,7 @@
           <h2 class="showcase-card__title">{{ card.title }}</h2>
           <p class="showcase-card__description">{{ card.description }}</p>
           <div class="showcase-card__tags">
-            <span class="showcase-card__tag">Paid Media</span>
-            <span class="showcase-card__tag">SEO</span>
-            <span class="showcase-card__tag">Partnerships</span>
+            <span class="showcase-card__tag" *ngFor="let tag of card.tags">{{ tag }}</span>
           </div>
         </div>
         <div class="showcase-card__video">
