@@ -1,0 +1,37 @@
+<section #narrativeSection class="experience-narrative">
+  <div class="experience-narrative__container">
+    <!-- Left Column: Multiple text sections, one for each card -->
+    <div class="experience-narrative__left">
+      <div 
+        *ngFor="let card of narrativeCards; let i = index"
+        class="experience-narrative__left-section"
+        [attr.data-card-index]="i"
+        [class.active]="currentCardIndex === i">
+        <h2 class="experience-narrative__headline">
+          <span *ngFor="let line of getHeadlineLines(card.leftHeadline)" class="headline-line">{{ line }}</span>
+        </h2>
+        <p class="experience-narrative__paragraph">{{ card.leftParagraph }}</p>
+      </div>
+    </div>
+
+    <!-- Right Column: Vertically stacked cards -->
+    <div #cardsContainer class="experience-narrative__right">
+      <div class="experience-narrative__cards">
+        <div 
+          *ngFor="let card of narrativeCards; let i = index" 
+          class="experience-narrative__card"
+          [attr.data-card-index]="i">
+          <div 
+            class="experience-narrative__card-image"
+            [style.background-image]="'url(' + card.imageUrl + ')'"
+            [style.--tint-color]="card.tintColor">
+          </div>
+          <div class="experience-narrative__card-content">
+            <h3 class="experience-narrative__card-title">{{ card.title }}</h3>
+            <p class="experience-narrative__card-description">{{ card.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

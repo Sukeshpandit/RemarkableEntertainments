@@ -21,6 +21,7 @@ import { ExperiencesComponent as ExperiencesPageComponent } from './pages/experi
 import { ExperienceMeasuresComponent } from './shared/components/experiences-components/experience-measures/experience-measures.component';
 import { ExperienceWordsComponent } from './shared/components/experiences-components/experience-words/experience-words.component';
 import { ExperienceNoteComponent } from './shared/components/experiences-components/experience-note/experience-note.component';
+import { ExperienceNarrativeComponent } from './shared/components/experiences-components/experience-narrative/experience-narrative.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { ExperienceNoteComponent } from './shared/components/experiences-compone
     ExperienceMeasuresComponent,
     ExperienceWordsComponent,
     ExperienceNoteComponent,
+    ExperienceNarrativeComponent,
   ],
   imports: [
     BrowserModule,
