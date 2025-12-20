@@ -22,6 +22,7 @@ import { ExperienceMeasuresComponent } from './shared/components/experiences-com
 import { ExperienceWordsComponent } from './shared/components/experiences-components/experience-words/experience-words.component';
 import { ExperienceNoteComponent } from './shared/components/experiences-components/experience-note/experience-note.component';
 import { ExperienceNarrativeComponent } from './shared/components/experiences-components/experience-narrative/experience-narrative.component';
+import { ExperienceFooterComponent } from './shared/components/experiences-components/experience-footer/experience-footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ExperienceNarrativeComponent } from './shared/components/experiences-co
     ExperienceWordsComponent,
     ExperienceNoteComponent,
     ExperienceNarrativeComponent,
+    ExperienceFooterComponent,
   ],
   imports: [
     BrowserModule,
