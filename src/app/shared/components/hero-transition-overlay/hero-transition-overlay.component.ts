@@ -33,8 +33,8 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
   }
 
   ngAfterViewInit(): void {
-    if (this.prefersReducedMotion || this.isMobile) {
-      // Skip animations, just show static content
+    if (this.prefersReducedMotion) {
+      // Skip animations for reduced motion preference
       return;
     }
 
@@ -78,18 +78,20 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
     }
 
     // Set initial positions for SVG groups (off-screen)
-    gsap.set(leftGroup, { x: -window.innerWidth });
-    gsap.set(rightGroup, { x: window.innerWidth });
+    // Use viewport width for off-screen positioning
+    const offScreenDistance = window.innerWidth;
+    gsap.set(leftGroup, { x: -offScreenDistance });
+    gsap.set(rightGroup, { x: offScreenDistance });
 
     // Calculate final positions for SVG groups with gap between them
-    // Each SVG is 120px wide, gap between SVGs in group is 2rem (32px)
-    // Gap between groups is increased to 4rem (64px) for more space
-    const svgWidth = 120; // px
-    const gapBetweenSvgs = 32; // 2rem in px
-    const gapBetweenGroups = 64; // 4rem in px (increased from 2rem)
+    // Responsive sizing based on viewport width
+    const isMobile = window.innerWidth < 768;
+    const svgWidth = isMobile ? 60 : 120; // Mobile: 60px (2x smaller), Desktop: 120px
+    const gapBetweenSvgs = isMobile ? 16 : 32; // Mobile: 1rem (16px), Desktop: 2rem (32px)
+    const gapBetweenGroups = isMobile ? 24 : 64; // Mobile: 1.5rem (24px), Desktop: 4rem (64px)
     
-    // Each group: 2 SVGs + 1 gap = 2*120 + 32 = 272px total width
-    const groupWidth = svgWidth * 2 + gapBetweenSvgs; // 272px
+    // Each group: 2 SVGs + 1 gap
+    const groupWidth = svgWidth * 2 + gapBetweenSvgs;
     
     // Position groups so there's 2rem gap between them at center
     // Left group offset: -(half group width + half gap) = -(136 + 16) = -152px
@@ -133,8 +135,8 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
           
           // SVG groups entry animation (0-100% of scroll) - animate to center
           const svgProgress = progress;
-          const leftGroupX = gsap.utils.interpolate(-window.innerWidth, leftGroupFinalX, svgProgress);
-          const rightGroupX = gsap.utils.interpolate(window.innerWidth, rightGroupFinalX, svgProgress);
+          const leftGroupX = gsap.utils.interpolate(-offScreenDistance, leftGroupFinalX, svgProgress);
+          const rightGroupX = gsap.utils.interpolate(offScreenDistance, rightGroupFinalX, svgProgress);
 
           // Apply base position + velocity enhancement, but clamp to final positions
           // This prevents groups from going beyond their final positions and overlapping

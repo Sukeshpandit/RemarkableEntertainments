@@ -44,14 +44,14 @@
       will-change: transform;
 
       @media (max-width: 768px) {
-        width: 80px;
+        width: 60px; // 2x smaller on mobile (half of 120px)
       }
     }
-  }
 
-  @media (max-width: 768px) {
-    .svg-container {
-      display: none;
+    @media (max-width: 768px) {
+      .svg-group {
+        gap: 1rem; // Reduced gap on mobile (16px)
+      }
     }
   }
 }
