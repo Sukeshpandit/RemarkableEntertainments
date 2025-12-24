@@ -9,6 +9,7 @@ import { HeroComponent } from './shared/components/hero/hero.component';
 import { ExperiencesCardsComponent } from './shared/components/experiences-cards/experiences.component';
 import { ShowcaseGridComponent } from './shared/components/showcase-grid/showcase-grid.component';
 import { ClientLogosComponent } from './shared/components/client-logos/client-logos.component';
+import { HeroTransitionOverlayComponent } from './shared/components/hero-transition-overlay/hero-transition-overlay.component';
 // import { EntertainmentsComponent } from './shared/components/entertainments/entertainments.component';
 import { AboutComponent } from './shared/components/about/about.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
@@ -30,6 +31,7 @@ import { ExperienceFooterComponent } from './shared/components/experiences-compo
     ExperiencesCardsComponent,
     ShowcaseGridComponent,
     ClientLogosComponent,
+    HeroTransitionOverlayComponent,
     // EntertainmentsComponent,
     AboutComponent,
     NavigationComponent,

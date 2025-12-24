@@ -1,0 +1,59 @@
+@use 'colors' as *;
+
+.hero-transition-overlay {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+
+  .svg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+
+    .svg-group {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      &--left {
+        // Will be animated to center
+      }
+
+      &--right {
+        // Will be animated to center
+      }
+    }
+
+    .svg-asset {
+      width: 120px;
+      height: auto;
+      display: block;
+      will-change: transform;
+
+      @media (max-width: 768px) {
+        width: 80px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .svg-container {
+      display: none;
+    }
+  }
+}
+
+
