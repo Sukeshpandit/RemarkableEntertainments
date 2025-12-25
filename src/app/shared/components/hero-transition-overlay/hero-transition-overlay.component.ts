@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -21,12 +22,16 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
   private prefersReducedMotion: boolean = false;
   private isMobile: boolean = false;
 
-  constructor() {
+  constructor(private router: Router) {
     if (typeof window !== 'undefined') {
       const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       this.prefersReducedMotion = mediaQuery.matches;
       this.isMobile = window.innerWidth < 768;
     }
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
   }
 
   ngAfterViewInit(): void {
