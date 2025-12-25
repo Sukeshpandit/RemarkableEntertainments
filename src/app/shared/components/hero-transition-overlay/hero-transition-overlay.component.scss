@@ -25,19 +25,13 @@
       top: 50%;
       transform: translate(-50%, -50%);
       display: flex;
-      align-items: center;
-      gap: 2rem;
+      align-items: flex-start; // Changed from center to align items to top
+      gap: 0.5rem;
       will-change: transform;
       transform-style: preserve-3d;
       backface-visibility: hidden;
+      padding-top: 2rem; // Add some space from the very top if needed
 
-      &--left {
-        // Will be animated to center
-      }
-
-      &--right {
-        // Will be animated to center
-      }
     }
 
     .svg-asset {
@@ -45,9 +39,11 @@
       height: auto;
       display: block;
       will-change: transform;
+      margin-bottom: 2rem; // Add space at the bottom of each image
 
       @media (max-width: 768px) {
         width: 60px; // 2x smaller on mobile (half of 120px)
+        margin-bottom: 1rem; // Smaller margin on mobile
       }
     }
 

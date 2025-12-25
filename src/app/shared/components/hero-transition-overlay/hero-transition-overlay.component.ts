@@ -84,8 +84,8 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
     // Responsive sizing based on viewport width
     const isMobile = window.innerWidth < 768;
     const svgWidth = isMobile ? 60 : 120; // Mobile: 60px (2x smaller), Desktop: 120px
-    const gapBetweenSvgs = isMobile ? 16 : 32; // Mobile: 1rem (16px), Desktop: 2rem (32px)
-    const gapBetweenGroups = isMobile ? 24 : 64; // Mobile: 1.5rem (24px), Desktop: 4rem (64px)
+    const gapBetweenSvgs = 0; // Mobile: 1rem (16px), Desktop: 2rem (32px)
+    const gapBetweenGroups = isMobile ? 24 : 40; // Mobile: 1.5rem (24px), Desktop: 4rem (64px)
     
     // Each group: 2 SVGs + 1 gap
     const groupWidth = svgWidth * 2 + gapBetweenSvgs;
