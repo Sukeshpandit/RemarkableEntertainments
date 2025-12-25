@@ -20,9 +20,6 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
   private masterTimeline?: gsap.core.Timeline;
   private prefersReducedMotion: boolean = false;
   private isMobile: boolean = false;
-  private lastScrollTime: number = 0;
-  private lastScrollPosition: number = 0;
-  private scrollVelocity: number = 0;
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -103,52 +100,29 @@ export class HeroTransitionOverlayComponent implements AfterViewInit, OnDestroy 
     // Animation should start early and complete while section is fully visible
     const scrollDistance = window.innerHeight * 0.6; // 60% of viewport height for animation
 
-    // Initialize velocity tracking
-    this.lastScrollTime = performance.now();
-    this.lastScrollPosition = window.scrollY;
-    this.scrollVelocity = 0;
+    // Set will-change for better performance
+    gsap.set([leftGroup, rightGroup], { 
+      willChange: 'transform',
+      force3D: true 
+    });
 
     this.masterTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: 'top bottom', // Start when section enters viewport (top hits bottom of viewport)
         end: 'center center', // Complete when section is centered in viewport
-        scrub: true,
+        scrub: 1, // Smooth scrubbing with 1 second lag for smoother animation
         onUpdate: (self) => {
-          // Calculate scroll velocity manually
-          const currentTime = performance.now();
-          const currentScrollPosition = window.scrollY;
-          const timeDelta = currentTime - this.lastScrollTime;
-          
-          if (timeDelta > 0) {
-            const positionDelta = currentScrollPosition - this.lastScrollPosition;
-            this.scrollVelocity = (positionDelta / timeDelta) * 1000; // pixels per second
-            this.lastScrollTime = currentTime;
-            this.lastScrollPosition = currentScrollPosition;
-          }
-
-          // Clamp velocity and apply enhancement to SVGs only
-          const clampedVelocity = Math.max(-500, Math.min(500, this.scrollVelocity));
-          const velocityOffset = clampedVelocity * 0.1; // Reduced influence to prevent overlap
-
           const progress = self.progress;
           
-          // SVG groups entry animation (0-100% of scroll) - animate to center
+          // Smooth interpolation for SVG groups entry animation
           const svgProgress = progress;
           const leftGroupX = gsap.utils.interpolate(-offScreenDistance, leftGroupFinalX, svgProgress);
           const rightGroupX = gsap.utils.interpolate(offScreenDistance, rightGroupFinalX, svgProgress);
 
-          // Apply base position + velocity enhancement, but clamp to final positions
-          // This prevents groups from going beyond their final positions and overlapping
-          const leftGroupXWithVelocity = leftGroupX + velocityOffset;
-          const rightGroupXWithVelocity = rightGroupX - velocityOffset;
-          
-          // Clamp positions to never exceed final positions (prevent overlap)
-          const clampedLeftX = Math.min(leftGroupXWithVelocity, leftGroupFinalX);
-          const clampedRightX = Math.max(rightGroupXWithVelocity, rightGroupFinalX);
-          
-          gsap.set(leftGroup, { x: clampedLeftX });
-          gsap.set(rightGroup, { x: clampedRightX });
+          // Apply smooth animation without velocity enhancement to prevent jitter
+          gsap.set(leftGroup, { x: leftGroupX, force3D: true });
+          gsap.set(rightGroup, { x: rightGroupX, force3D: true });
         }
       }
     });

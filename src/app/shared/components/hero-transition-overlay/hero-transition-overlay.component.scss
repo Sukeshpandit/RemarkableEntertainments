@@ -27,6 +27,9 @@
       display: flex;
       align-items: center;
       gap: 2rem;
+      will-change: transform;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
 
       &--left {
         // Will be animated to center
